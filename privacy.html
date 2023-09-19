@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Tibalink</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="TibaLink - Connecting Physicians in Africa" />
+  <meta name="keywords"
+    content="bootstrap, business, creative agency, mobile app showcase, saas, fintech, finance, online courses, software, medical, conference landing, services, e-commerce, shopping cart, multipurpose, shop, ui kit, marketing, seo, landing, blog, portfolio, html5, css3, javascript, gallery, slider, touch, creative" />
+  <meta name="author" content="Createx Studio" />
+
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicon and Touch Icons -->
+  <link rel="shortcut icon" href="assets/favicon/tibalink.ico" />
+  <meta name="msapplication-TileColor" content="#080032" />
+  <meta name="msapplication-config" content="assets/favicon/browserconfig.xml" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Vendor Styles -->
+  <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css" />
+  <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css" />
+
+  <!-- Main Theme Styles + Bootstrap -->
+  <link rel="stylesheet" media="screen" href="assets/css/theme.min.css" />
+
+  <!-- Page loading styles -->
+  <style>
+    .page-loading {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: all 0.4s 0.2s ease-in-out;
+      transition: all 0.4s 0.2s ease-in-out;
+      background-color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999;
+    }
+
+    .dark-mode .page-loading {
+      background-color: #0b0f19;
+    }
+
+    .page-loading.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .page-loading-inner {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      -webkit-transition: opacity 0.2s ease-in-out;
+      transition: opacity 0.2s ease-in-out;
+      opacity: 0;
+    }
+
+    .page-loading.active>.page-loading-inner {
+      opacity: 1;
+    }
+
+    .page-loading-inner>span {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #9397ad;
+    }
+
+    .dark-mode .page-loading-inner>span {
+      color: #fff;
+      opacity: 0.6;
+    }
+
+    .page-spinner {
+      display: inline-block;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin-bottom: 0.75rem;
+      vertical-align: text-bottom;
+      border: 0.15em solid #b4b7c9;
+      border-right-color: transparent;
+      border-radius: 50%;
+      -webkit-animation: spinner 0.75s linear infinite;
+      animation: spinner 0.75s linear infinite;
+    }
+
+    .dark-mode .page-spinner {
+      border-color: rgba(255, 255, 255, 0.4);
+      border-right-color: transparent;
+    }
+
+    @-webkit-keyframes spinner {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spinner {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    .card-color {
+      background-color: #1abe9e !important;
+    }
+
+    .border-color {
+      border-color: #1abe9e !important;
+    }
+
+    .shadow-color {
+      box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(69, 178, 176, 0.9) !important;
+    }
+
+    .card-color {
+      background-color: #1abe9e !important;
+    }
+
+    .border-color {
+      border-color: #1abe9e !important;
+    }
+
+    .shadow-color {
+      box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(69, 178, 176, 0.9) !important;
+    }
+
+    .btn:hover {
+      background-color: #006466 !important;
+      border: solid 1px #006466 !important;
+      color: #ffff;
+    }
+
+    .text-color-blue {
+      color: #006466 !important;
+    }
+
+    .text-color-blue {
+      color: #006466 !important;
+    }
+
+    .text-color-blue-light {
+      color: #1dd3b0 !important;
+    }
+  </style>
+
+  <!-- Theme mode -->
+  <script>
+    let mode = window.localStorage.getItem("mode"),
+      root = document.getElementsByTagName("html")[0];
+    if (mode !== null && mode === "dark") {
+      root.classList.add("dark-mode");
+    } else {
+      root.classList.remove("dark-mode");
+    }
+  </script>
+
+  <!-- Page loading scripts -->
+  <script>
+    (function () {
+      window.onload = function () {
+        const preloader = document.querySelector(".page-loading");
+        preloader.classList.remove("active");
+        setTimeout(function () {
+          preloader.remove();
+        }, 1000);
+      };
+    })();
+  </script>
+</head>
+
+<!-- Body -->
+
+<body>
+  <!-- Page loading spinner -->
+  <div class="page-loading active">
+    <div class="page-loading-inner">
+      <div class="page-spinner"></div>
+      <span>Loading...</span>
+    </div>
+  </div>
+
+  <!-- Page wrapper for sticky footer -->
+  <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+  <main class="page-wrapper">
+    <!-- Navbar -->
+    <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+    <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+      <div class="container px-3">
+        <a href="index.html" class="navbar-brand pe-3">
+          <img src="assets/img/logo.svg" alt="Tibalink" />
+        </a>
+        <div id="navbarNav" class="offcanvas offcanvas-end">
+          <div class="offcanvas-body">
+            <ul class="navbar-nav me-auto mt-2 mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="/#features" class="nav-link">Features</a>
+              </li>
+              <li class="nav-item">
+                <a href="/" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="/#about" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="privacy.html" class="nav-link">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+          <input type="checkbox" class="form-check-input shadow-color" id="theme-mode" />
+          <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+          <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+        </div>
+        <button type="button" class="navbar-toggler shadow-color" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a href="index.html#section-cta" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex">
+          Get Early Access
+        </a>
+      </div>
+    </header>
+    <!-- FAQ (Accordion) -->
+    <section class="container py-5 mb-2 mt-5 my-md-4 my-lg-5">
+      <div id="bg-pattern" class="position-relative rounded-3 overflow-hidden px-3 px-sm-4 px-md-0 py-5">
+        <!-- Parallax patterns -->
+        <!-- <div
+            class="rellax position-absolute top-0 start-0 w-100 h-100  d-lg-block"
+            data-rellax-percentage="0.5"
+            data-rellax-speed="1.75"
+          >
+            <img
+              src="assets/img/landing/online-courses/pattern-1.svg"
+              class="position-absolute left-0 right-0"
+              alt="Pattern"
+            />
+            <img
+              src="assets/img/landing/online-courses/pattern-1.svg"
+              class="position-absolute top-50"
+              alt="Pattern"
+            />
+          </div> -->
+
+        <div class="row justify-content-center position-relative zindex-2 py-lg-4">
+          <div class="col-xl-8 col-lg-9 col-md-10 py-2">
+            <h2 class="h1 text-dark text-center mt-n2 mt-lg-0 mb-4 mb-lg-5">
+              Privacy Policy
+            </h2>
+            <div class="accordion" id="faq">
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#q-1" aria-expanded="true" aria-controls="q-1">
+                    Introduction
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse show" id="q-1" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      Qhala Limited ("Company" or "We") respect your privacy
+                      and are committed to protecting it through our
+                      compliance with this policy. This policy describes: The
+                      types of information we may collect or that you may
+                      provide when you download, install, register with,
+                      access, or use the Tiba-link Application (the "App").
+                      Our practices for collecting, using, maintaining,
+                      protecting, and disclosing that information.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-2" aria-expanded="false" aria-controls="q-2">
+                    1. Children Under the Age of 18
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse" id="q-2" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      The App is not intended for children under 18 years of
+                      age, and we do not knowingly collect personal
+                      information from children under 18. If we learn that we
+                      have collected or received personal information from a
+                      child under 18 without verification of parental consent,
+                      we will delete that information. If you believe we might
+                      have any information from or about a child under 18,
+                      please contact us at <a href="mailto:tibalink@qhala.com">tibalink@qhala.com</a>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-3" aria-expanded="false" aria-controls="q-3">
+                    2 . Information We Collect and How We Collect it
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse" id="q-3" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      We collect information from and about users of our App:
+                      • Directly from you when you provide it to us. •
+                      Automatically when you use the App.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-4" aria-expanded="false" aria-controls="q-4">
+                    3 . Information You Provide to Us
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse" id="q-4" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      When you download, install, register with, or use this
+                      App, we may ask you to provide information: • By which
+                      you may be personally identified, such as name, email
+                      address, telephone number, picture (optional), emergency
+                      contact information (optional), date of birth
+                      (optional), gender (optional) or any other identifier by
+                      which you may be contacted online or offline ("personal
+                      information"). • That is about you but individually does
+                      not identify you This information includes: •
+                      Information that you provide by filling in forms in the
+                      App. This includes information provided at the time of
+                      registering to use the App and utilizing our services. •
+                      Records and copies of your correspondence (including
+                      email addresses and phone numbers), if you contact us. •
+                      Your responses to surveys that we might ask you to
+                      complete for research purposes. • Your search queries on
+                      the App. • Automatic Information Collection and Tracking
+                      • When you download, install, access, and/or use the
+                      App, it may use technology to au
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-5" aria-expanded="false" aria-controls="q-5">
+                    4 . Usage Details
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse" id="q-5" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      When you access and use the App, we may automatically
+                      collect certain details of your access to and use of the
+                      App, including traffic data, location data, logs, and
+                      other communication data and the resources that you
+                      access and use on or through the App. .
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-6" aria-expanded="false" aria-controls="q-6">
+                    5 . Device Information
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse" id="q-6" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      We may collect information about your mobile device and
+                      internet connection, including the device's unique
+                      device identifier, IP address, operating system, browser
+                      type, mobile network information, and the device's
+                      telephone number.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-7" aria-expanded="false" aria-controls="q-7">
+                    6 . Stored Information and Files
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse" id="q-7" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      The App also may access metadata and other information
+                      associated with other files stored on your device. This
+                      may include, for example, photographs, audio and video
+                      clips, personal contacts, and address book information.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-8" aria-expanded="false" aria-controls="q-8">
+                    7 . Location Information
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse" id="q-8" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      This App collects real-time information about the
+                      location of your device. If you do not want us to
+                      collect this information do not download, install or use
+                      the App. Kindly delete or uninstall it from your Mobile
+                      device. For more information, see below for sections
+                      entitled “How We Use Your Information” and “How We
+                      Disclose Your Information”. Please note, that opting out
+                      of the App's collection of location information will
+                      cause its location-based features to be disabled. • We
+                      also may use these technologies to collect information
+                      about your activities over time and across third-party
+                      websites, apps, or other online services (behavioral
+                      tracking). • Information Collection and Tracking
+                      Technologies The technologies we use for automatic
+                      information collection may include: • Cookies (or mobile
+                      cookies). A cookie is a small file placed on your
+                      smartphone. It may be possible to refuse to accept
+                      mobile cookies by activating the appropriate setting on
+                      your smartphone. However, if you select this setting you
+                      may be unable to access certain parts of our App. • Web
+                      Beacons Pages of the App and our emails may contain
+                      small electronic files known as web beacons (also
+                      referred to as clear gifs, pixel tags, and single-pixel
+                      gifs) that permit us, for example, to count users who
+                      have visited those pages or opened an e-mail and for
+                      other related app statistics (for example, recording the
+                      popularity of certain App content and verifying system
+                      and server integrity).
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-9" aria-expanded="false" aria-controls="q-9">
+                    8 . Third-Party Information Collection
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse" id="q-9" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      When you use the App or its content, certain third
+                      parties may use automatic information collection
+                      technologies to collect information about you or your
+                      device. These third parties may include: · Advertisers,
+                      ad networks, and ad servers · Analytics companies · Your
+                      mobile device manufacturer · Your mobile service
+                      provider These third parties may use tracking
+                      technologies to collect information about you when you
+                      use this App. The information they collect may be
+                      associated with your personal information or they may
+                      collect information, including personal information,
+                      about your online activities over time and across
+                      different websites, apps, and other online services
+                      websites. They may use this information to provide you
+                      with interest-based (behavioral) advertising or other
+                      targeted content. We do not control these third parties'
+                      tracking technologies or how they may be used. If you
+                      have any questions about an advertisement or other
+                      targeted content, you should contact the responsible
+                      provider directly. For information about how you can opt
+                      out of receiving targeted advertising from many
+                      providers, see “Your Choices About Our Collection, Use,
+                      and Disclosure of Your Information.”
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-10" aria-expanded="false" aria-controls="q-10">
+                    9 . How We Use Your Information
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse" id="q-10" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      We use information that we collect about you or that you
+                      provide to us, including any personal information, to: •
+                      Provide you with the App and its contents, and any other
+                      information, products or services that you request from
+                      us. • Fulfill any other purpose for which you provide
+                      it. • Give you notices about your account/subscription,
+                      including expiration and renewal notices. • Carry out
+                      our obligations and enforce our rights arising from any
+                      contracts entered into between you and us, including for
+                      billing and collection. • Notify you when App updates
+                      are available, and of changes to any products or
+                      services we offer or provide though it. • To allow you
+                      to participate in interactive features of our Service
+                      when you choose to do so • To provide customer support •
+                      To gather analysis or valuable information so that we
+                      can improve our Service • To detect, prevent and address
+                      technical issues • To provide you with news, special
+                      offers and general information about other goods,
+                      services and events which we offer that are similar to
+                      those that you have already purchased or enquired about
+                      unless you have opted not to receive such information
+                      The usage information we collect helps us to improve our
+                      App and to deliver a better and more personalized
+                      experience by enabling us to: • Estimate our audience
+                      size and usage patterns. • Store information about your
+                      preferences, allowing us to customize our App according
+                      to your individual interests. • Speed up your searches.
+                      • Recognize you when you use the App. We may also use
+                      your information to contact you about our own and third
+                      parties' goods and services that may be of interest to
+                      you. If you do not want us to use your information in
+                      this way, please delete the App immediately. For more
+                      information, see “Your Choices About Our Collection,
+                      Use, and Disclosure of Your Information.” We may use the
+                      information we collect to display advertisements to our
+                      advertisers' target audiences. Even though we do not
+                      disclose your personal information for these purposes
+                      without your consent, if you click on or otherwise
+                      interact with an advertisement, the advertiser may
+                      assume that you meet its target criteria.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-11" aria-expanded="false" aria-controls="q-11">
+                    10 . Disclosure of Your Information
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse" id="q-11" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      We may disclose aggregated information about our users,
+                      and information that does not identify any individual or
+                      device, without restriction. In addition, we may
+                      disclose personal information that we collect or you
+                      provide: • To our subsidiaries and affiliates. • To
+                      contractors, service providers, and other third parties
+                      we use to support our business and who are bound by
+                      contractual obligations to keep personal information
+                      confidential and use it only for the purposes for which
+                      we disclose it to them. • To a buyer or other successor
+                      in the event of a merger, divestiture, restructuring,
+                      reorganization, dissolution, or other sale or transfer
+                      of some or all of the Company’s assets, whether as a
+                      going concern or as part of liquidation, or similar
+                      proceeding, in which personal information held by the
+                      Company about our App users is among the assets
+                      transferred. • To third parties only in a de-identified
+                      manner to market their products or services to you. For
+                      more information, see the section entitled "CHOICES
+                      ABOUT HOW WE USE AND DISCLOSE YOUR INFORMATION" below. •
+                      To fulfill the purpose for which you provide it. • For
+                      any other purpose disclosed by us when you provide the
+                      information. • With your consent. • To comply with any
+                      court order, law, or legal process, including to respond
+                      to any Government or regulatory request. • To enforce
+                      our rights arising from any contracts entered into
+                      between you and us, including the App. • If we believe
+                      disclosure is necessary or appropriate to protect the
+                      rights, property, or safety of the Company, our
+                      customers or others.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm">
+                <h3 class="accordion-header">
+                  <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q-12" aria-expanded="false" aria-controls="q-12">
+                    11 . Your Choices About Our Collection, Use, and
+                    Disclosure of Your Information
+                  </button>
+                </h3>
+                <div class="accordion-collapse collapse" id="q-12" data-bs-parent="#faq">
+                  <div class="accordion-body fs-sm pt-0">
+                    <p>
+                      We strive to provide you with choices regarding the
+                      personal information you provide to us. This section
+                      describes mechanisms we provide for you to control
+                      certain uses and disclosures of over your information.
+                      If you would not like to provide any personal
+                      information or allow for any tracking, you can choose to
+                      utilize the App without creating a profile. If you
+                      choose this option, some parts of the App may then be
+                      inaccessible or not function properly.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer bg-secondary pt-5 pb-4 pb-lg-5">
+    <div class="container pt-lg-4">
+      <div class="row pb-5">
+        <div class="col-lg-4 col-md-6">
+          <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+            <img src="assets/img/logo.svg" alt="Silicon" />
+          </div>
+          <p class="fs-sm pb-lg-3 mb-4">
+            TibaLink is an initiative for doctors, by doctors, aimed at
+            improving the speed and efficiency of communication in healthcare.
+          </p>
+          <form class="subscription-form needs-validation validate" action="https://tibalink.us13.list-manage.com/subscribe/post?u=4484f072bf6c3c4fcc5bd0807&amp;id=b165551d9d&amp;f_id=009537e2f0"
+            method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate style="max-width: 420px;">
+            <label for="subscr-email" class="form-label">Subscribe to our newsletter</label>
+            <div class="input-group">
+              <input type="email" id="subscr-email" class="form-control rounded-start ps-5" name="EMAIL" placeholder="Your email" required>
+              <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
+              <div class="invalid-tooltip position-absolute top-100 start-0">
+                Please provide a valid email address.
+              </div>
+              <button type="submit" class="btn btn-hov btn-primary" name="subscribe">Subscribe*</button>
+            </div>
+            <div class="form-text pt-1 mt-4">*Subscribe to our newsletter to receive updates and new product info.</div>
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+              <input class="subscription-form-antispam" type="text" name="b_4484f072bf6c3c4fcc5bd0807_b165551d9d" tabindex="-1">
+            </div>
+            <div class="subscription-status"></div>
+          </form>
+        </div>
+        <div class="col-xl-6 col-lg-7 col-md-5 offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+          <div id="footer-links" class="row">
+            <div class="col-lg-4">
+              <h6 class="mb-2">
+                <a href="#useful-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Useful Links</a>
+              </h6>
+              <div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                  <li class="nav-item">
+                    <a href="/" class="nav-link d-inline-block px-0 pt-1 pb-2">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#about" class="nav-link d-inline-block px-0 pt-1 pb-2">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#features" class="nav-link d-inline-block px-0 pt-1 pb-2">Features</a>
+                  </li>
+                </ul>
+                <ul class="nav flex-column mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="privacy.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-3">
+              <h6 class="mb-2">
+                <a href="#social-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Socials</a>
+              </h6>
+              <div id="social-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                <ul class="nav flex-column mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a href="https://www.facebook.com/profile.php?id=100093048056096" class="nav-link d-inline-block px-0 pt-1 pb-2">Facebook</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://www.linkedin.com/company/tibalink/" class="nav-link d-inline-block px-0 pt-1 pb-2">LinkedIn</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://twitter.com/Tibalink_" class="nav-link d-inline-block px-0 pt-1 pb-2">Twitter</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://www.instagram.com/tibalink_/" class="nav-link d-inline-block px-0 pt-1 pb-2">Instagram</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
+              <h6 class="mb-2">Contact Us</h6>
+              <a href="mailto:tibalink@qhala.com" class="fw-medium">tibalink(at)qhala.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+        Made in Africa with ❤️ by Qhala.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <a href="#top" class="btn-scroll-top" data-scroll>
+    <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+    <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+  </a>
+
+  <!-- Vendor Scripts -->
+  <!-- Vendor Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+    crossorigin="anonymous"></script>
+  <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  <script src="assets/vendor/rellax/rellax.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+  <script src="assets/vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js"></script>
+  <script src="assets/vendor/lightgallery/plugins/zoom/lg-zoom.min.js"></script>
+  <script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+
+  <!-- Main Theme Script -->
+  <script src="assets/js/theme.min.js"></script>
+</body>
+
+</html>

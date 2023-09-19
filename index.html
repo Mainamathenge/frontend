@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Tibalink</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="TibaLink - Connecting Physicians in Africa" />
+  <meta name="keywords"
+    content="bootstrap, business, creative agency, mobile app showcase, saas, fintech, finance, online courses, software, medical, conference landing, services, e-commerce, shopping cart, multipurpose, shop, ui kit, marketing, seo, landing, blog, portfolio, html5, css3, javascript, gallery, slider, touch, creative" />
+  <meta name="author" content="Createx Studio" />
+
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicon and Touch Icons -->
+  <link rel="shortcut icon" href="assets/favicon/tibalink.ico" />
+  <meta name="msapplication-TileColor" content="#080032" />
+  <meta name="msapplication-config" content="assets/favicon/browserconfig.xml" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Vendor Styles -->
+  <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css" />
+  <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css" />
+
+  <!-- Main Theme Styles + Bootstrap -->
+  <link rel="stylesheet" media="screen" href="assets/css/theme.min.css" />
+
+  <!-- Page loading styles -->
+  <style>
+    .page-loading {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: all 0.4s 0.2s ease-in-out;
+      transition: all 0.4s 0.2s ease-in-out;
+      background-color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999;
+    }
+
+    .dark-mode .page-loading {
+      background-color: #0b0f19;
+    }
+
+    .page-loading.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .page-loading-inner {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      -webkit-transition: opacity 0.2s ease-in-out;
+      transition: opacity 0.2s ease-in-out;
+      opacity: 0;
+    }
+
+    .page-loading.active>.page-loading-inner {
+      opacity: 1;
+    }
+
+    .page-loading-inner>span {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #9397ad;
+    }
+
+    .dark-mode .page-loading-inner>span {
+      color: #fff;
+      opacity: 0.6;
+    }
+
+    .page-spinner {
+      display: inline-block;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin-bottom: 0.75rem;
+      vertical-align: text-bottom;
+      border: 0.15em solid #b4b7c9;
+      border-right-color: transparent;
+      border-radius: 50%;
+      -webkit-animation: spinner 0.75s linear infinite;
+      animation: spinner 0.75s linear infinite;
+    }
+
+    .dark-mode .page-spinner {
+      border-color: rgba(255, 255, 255, 0.4);
+      border-right-color: transparent;
+    }
+
+    @-webkit-keyframes spinner {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spinner {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    .card-color {
+      background-color: #1abe9e !important;
+    }
+
+    .border-color {
+      border-color: #1abe9e !important;
+    }
+
+    .shadow-color {
+      box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(69, 178, 176, 0.9) !important;
+    }
+
+    .btn-video:hover {
+      box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(69, 178, 176, 0.9) !important;
+    }
+
+    .btn-hov:hover {
+      background-color: #006466 !important;
+      border: solid 1px #006466 !important;
+      color: #ffff;
+    }
+
+    .text-color-blue {
+      color: #006466 !important;
+    }
+
+    .text-color-blue {
+      color: #006466 !important;
+    }
+
+    .text-color-blue-light {
+      color: #1dd3b0 !important;
+    }
+  </style>
+
+  <!-- Theme mode -->
+  <script>
+    let mode = window.localStorage.getItem("mode"),
+      root = document.getElementsByTagName("html")[0];
+    if (mode !== null && mode === "dark") {
+      root.classList.add("dark-mode");
+    } else {
+      root.classList.remove("dark-mode");
+    }
+  </script>
+
+  <!-- Page loading scripts -->
+  <script>
+    (function () {
+      window.onload = function () {
+        const preloader = document.querySelector(".page-loading");
+        preloader.classList.remove("active");
+        setTimeout(function () {
+          preloader.remove();
+        }, 1000);
+      };
+    })();
+  </script>
+</head>
+
+<!-- Body -->
+
+<body>
+  <!-- Page loading spinner -->
+  <div class="page-loading active">
+    <div class="page-loading-inner">
+      <div class="page-spinner"></div>
+      <span>Loading...</span>
+    </div>
+  </div>
+
+  <!-- Page wrapper for sticky footer -->
+  <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+  <main class="page-wrapper">
+    <!-- Navbar -->
+    <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+    <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+      <div class="container px-3">
+        <a href="index.html" class="navbar-brand pe-3">
+          <img src="assets/img/logo.svg" alt="Tibalink" />
+        </a>
+        <div id="navbarNav" class="offcanvas offcanvas-end">
+          <div class="offcanvas-body">
+            <ul class="navbar-nav me-auto mt-2 mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="#features" class="nav-link">Features</a>
+              </li>
+              <!-- <li class="nav-item">
+                  <a href="components/typography.html" class="nav-link">Home</a>
+                </li> -->
+              <li class="nav-item">
+                <a href="#about" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="privacy.html" class="nav-link">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+          <input type="checkbox" class="form-check-input shadow-color" id="theme-mode" />
+          <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+          <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+        </div>
+        <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a href="#section-cta" class="btn btn-hov btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex">
+          Get Early Access
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="position-relative pt-md-3 pt-lg-5 mb-md-3 mb-lg-5">
+      <div class="container position-relative zindex-5 pt-5">
+        <div class="row mt-4 pt-5">
+          <div class="col-xl-4 col-lg-5 text-center text-lg-start pb-3 pb-md-4 pb-lg-0">
+            <h1 class="fs-xl text-uppercase text-color-blue-light">
+              PROFESSIONAL MEDICAL NETWORK
+            </h1>
+            <h3 class="display-4 pb-md-2 text-color-blue pb-lg-4">
+              Connecting Physicians in Africa
+            </h3>
+          </div>
+          <div class="col-xl-5 col-lg-6 offset-xl-1 position-relative zindex-5 mb-5 mb-lg-0">
+            <div class="rellax card card-color border-0 shadow-color py-2 p-sm-4 p-lg-5" data-rellax-speed="-1" data-disable-parallax-down="lg">
+              <div class="card-body p-lg-3">
+                <h2 class="text-light pb-1 pb-md-3">Tibalink</h2>
+                <p class="fs-lg text-light pb-2 pb-md-0 mb-4 mb-md-5">
+                  Improving the speed and efficiency of care by facilitating
+                  medical communication and knowledge transfer within
+                  healthcare organisations and between medical colleagues,
+                  medical networks, and care teams.
+                </p>
+                <a href="#section-cta" class="btn btn-hov btn-light btn-lg">
+                  About Us
+                  <i class="bx bx-right-arrow-alt lh-1 fs-4 ms-2 me-n2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-none d-lg-block" style="margin-top: -165px"></div>
+        <div class="row align-items-end">
+          <div class="col-lg-6 d-none d-lg-block">
+            <img src="assets/img/landing/medical/hero-img-2.png" class="rellax rounded-3" alt="Image" data-rellax-speed="1.35" data-disable-parallax-down="md" />
+          </div>
+          <div class="col-lg-6 d-flex flex-column flex-md-row align-items-center justify-content-between">
+            <div class="d-flex align-items-center ps-xl-5 mb-4 mb-md-0">
+              <div class="btn btn-icon btn-secondary btn-lg pe-none rounded d-lg-none d-xl-inline-flex">
+                <i class="bx bx-time text-primary fs-3"></i>
+              </div>
+              <ul class="list-unstyled ps-3 ps-lg-0 ps-xl-3 mb-0">
+                <li>
+                  <strong class="text-dark">Mon – Fri:</strong> 9:00 am –
+                  22:00 pm
+                </li>
+                <li>
+                  <strong class="text-dark">Sat – Sun:</strong> 9:00 am –
+                  20:00 pm
+                </li>
+              </ul>
+            </div>
+            <a href="#section-cta" class="btn btn-hov btn-primary btn-lg shadow-color">Make an appointment</a>
+          </div>
+        </div>
+      </div>
+      <div class="d-none d-lg-block position-absolute top-0 end-0 w-50 d-flex flex-column ps-3" style="height: calc(100% - 108px)">
+        <div class="w-100 h-100 overflow-hidden bg-position-center bg-repeat-0 bg-size-cover" style="
+              background-image: url(assets/img/landing/medical/hero-img-1.png);
+              border-bottom-left-radius: 0.5rem;
+            "></div>
+      </div>
+    </section>
+
+    <!-- Icon boxes (Features) -->
+    <section class="container py-5 mb-2 mb-md-4 mb-lg-5">
+      <div class="row row-cols-1 row-cols-md-3 g-4 pt-2 pt-md-4 pb-lg-2">
+        <!-- Item -->
+        <div class="col">
+          <div class="card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center border-color h-100">
+            <img src="assets/img/landing/medical/icons/doctor.svg" width="168" alt="Doctor icon" />
+            <div class="card-body text-center text-sm-start text-md-center text-xxl-start pb-3 pb-sm-2 pb-md-3 pb-xxl-2">
+              <h3 class="h5 mb-2 mt-n4 mt-sm-0 mt-md-n4 mt-xxl-0">
+                Collaborate.
+              </h3>
+              <p class="fs-sm mb-1">
+                We facilitate knowledge transfer between colleagues.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="col">
+          <div class="card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center border-color h-100">
+            <img src="assets/img/landing/medical/icons/ambulance.svg" width="168" alt="Ambulance icon" />
+            <div class="card-body text-center text-sm-start text-md-center text-xxl-start pb-3 pb-sm-2 pb-md-3 pb-xxl-2">
+              <h3 class="h5 mb-3 mt-n4 mt-sm-0 mt-md-n4 mt-xxl-0">
+                Data transfer.
+              </h3>
+              <p class="fs-sm mb-1">
+                Share medical data safely & securely among staff.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="col">
+          <div class="card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center border-color h-100">
+            <img src="assets/img/landing/medical/icons/virus.svg" width="168" alt="Virus icon" />
+            <div class="card-body text-center text-sm-start text-md-center text-xxl-start pb-3 pb-sm-2 pb-md-3 pb-xxl-2">
+              <h3 class="h5 mb-2 mt-n4 mt-sm-0 mt-md-n4 mt-xxl-0">
+                Consult.
+              </h3>
+              <p class="fs-sm mb-1">
+                Get quality advice from experts in different medical fields.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video showreel -->
+    <section class="container text-center pb-5 mb-3 mb-md-4 mb-lg-5">
+      <h2 class="h1 pt-1 mb-4 text-color-blue-light">Our Approach</h2>
+      <div class="row justify-content-center mb-md-2 mb-lg-5">
+        <div class="col-lg-6 col-md-8">
+          <p class="fs-lg text-muted mb-lg-0">
+            We have built a secure medical communication platform allowing
+            care providers to improve team communication and engage other
+            experts who can help with questions, share experience & take
+            formal referrals.
+          </p>
+        </div>
+      </div>
+      <div class="position-relative rounded-3 overflow-hidden mb-lg-3">
+        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center zindex-5 shadow-color">
+          <!-- TODO update the video link with link from Marketing team -->
+          <a href="#" class="btn btn-video btn-icon  stretched-link bg-white" data-bs-toggle="video">
+            <i class="bx bx-play"></i>
+          </a>
+        </div>
+        <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-35"></span>
+        <img src="assets/img/landing/medical/video-cover.jpg" alt="Cover image" />
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="container pb-5 mb-md-2 mb-lg-5" id="features">
+      <div class="row">
+        <div class="col-lg-4 text-center text-lg-start pb-3 pb-lg-0 mb-4 mb-lg-0">
+          <h2 class="h1 mb-lg-4 text-color-blue">
+            A solution for physicians by physicians.
+          </h2>
+          <p class="pb-4 mb-0 mb-lg-3">
+            We appreciate your trust greatly. Our patients choose us and our
+            services because they know we are the best. We offer complete
+            health care to individuals with various health concerns.
+          </p>
+        </div>
+        <div class="col-xl-7 col-lg-8 offset-xl-1">
+          <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+              <div class="card card-hover bg-secondary border-0 mb-4">
+                <div class="card-body d-flex align-items-start">
+                  <div class="flex-shrink-0 bg-light rounded-3 p-3">
+                    <img src="assets/img/landing/medical/services/list.svg" width="28" alt="Icon" />
+                  </div>
+                  <div class="ps-4">
+                    <h3 class="h5 pb-2 mb-1">Patient List</h3>
+                    <p class="pb-2 mb-1">
+                      Organise and curate patient records better.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card card-hover bg-secondary border-0 mb-4">
+                <div class="card-body d-flex align-items-start">
+                  <div class="flex-shrink-0 bg-light rounded-3 p-3">
+                    <img src="assets/img/landing/medical/services/chat.svg" width="28" alt="Icon" />
+                  </div>
+                  <div class="ps-4">
+                    <h3 class="h5 pb-2 mb-1">Chat</h3>
+                    <p class="pb-2 mb-1">
+                      Communicate and share media easily and safely.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card card-hover bg-secondary border-0 mb-4">
+                <div class="card-body d-flex align-items-start">
+                  <div class="flex-shrink-0 bg-light rounded-3 p-3">
+                    <img src="assets/img/landing/medical/services/group.svg" width="28" alt="Icon" />
+                  </div>
+                  <div class="ps-4">
+                    <h3 class="h5 pb-2 mb-1">Group Consults</h3>
+                    <p class="pb-2 mb-1">
+                      Consult with other medical peers on diagnoses.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card card-hover bg-secondary border-0 mb-4">
+                <div class="card-body d-flex align-items-start">
+                  <div class="flex-shrink-0 bg-light rounded-3 p-3">
+                    <img src="assets/img/landing/medical/services/doc.svg" width="28" alt="Icon" />
+                  </div>
+                  <div class="ps-4">
+                    <h3 class="h5 pb-2 mb-1">Topics</h3>
+                    <p class="pb-2 mb-1">
+                      Learn and engage peers on different medical topics.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA carousel -->
+    <section class="pb-5 mb-2 mb-md-4 mb-lg-5" style="padding-top: 80px">
+      <div class="bg-secondary pb-lg-4 pb-xl-5">
+        <div class="container pb-4 pb-md-5">
+          <div class="row">
+            <div class="col-xl-5 col-lg-6" style="margin-top: -80px">
+              <!-- Swiper tabs -->
+              <div class="swiper-tabs mx-auto" style="max-width: 526px">
+                <div id="image-1" class="swiper-tab active">
+                  <img src="assets/img/landing/medical/cta/01.png" class="rounded-3" alt="Image" />
+                </div>
+                <div id="image-2" class="swiper-tab">
+                  <img src="assets/img/landing/medical/cta/02.jpg" class="rounded-3" alt="Image" />
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-5 col-lg-6 offset-xl-1 pt-2 pt-md-4 pt-lg-5 mt-4">
+              <div class="swiper-wrapper text-center text-lg-start">
+                <!-- Item -->
+                <div class="swiper-slide pb-4" data-swiper-tab="#image-1">
+                  <a href="index.html">
+                    <img src="assets/img/playstore.svg" alt="Tibalink" />
+                  </a>
+                  <p class="pb-2 pb-xl-0 mt-4 mb-xl-5">
+                    Download the app for free on Google Play Store and be part
+                    of the future of medical collaboration.
+                  </p>
+                  <a href="#section-cta" class="btn btn-hov btn-primary shadow-color btn-lg">Get Early Access</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="container pt-xl-2 pb-5 mb-md-3 mb-lg-5" id="about">
+      <div class="d-md-flex align-items-center justify-content-between text-center text-md-start pb-1 pb-lg-0 mb-4 mb-lg-5">
+        <h2 class="h1 mb-md-0 text-center text-color-blue-light">
+          Meet Our Medical Specialists
+        </h2>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <!-- Item -->
+        <div class="col">
+          <div class="card card-hover border-0 bg-transparent">
+            <div class="position-relative">
+              <img src="assets/img/team/01.jpg" class="rounded-3" alt="Dr. Nolen" />
+              <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center rounded-3">
+                <span class="position-absolute top-0 start-0 w-100 h-100 card-color opacity-35 rounded-3"></span>
+                <div class="position-relative d-flex zindex-2">
+                  <a href="#" class="btn btn-icon btn-secondary btn-facebook btn-sm bg-white me-2">
+                    <i class="bx bxl-facebook"></i>
+                  </a>
+                  <a href="#" class="btn btn-icon btn-secondary btn-linkedin btn-sm bg-white me-2">
+                    <i class="bx bxl-linkedin"></i>
+                  </a>
+                  <a href="#" class="btn btn-icon btn-secondary btn-twitter btn-sm bg-white">
+                    <i class="bx bxl-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body text-center p-3">
+              <h3 class="fs-lg fw-semibold pt-1 mb-2">Dr. Nolen</h3>
+              <p class="fs-sm mb-2">Otolaryngologist, Head and Neck Surgeon, Facial Plastics Surgeon.</p>
+              <div class="d-flex align-items-center justify-content-center">
+                <div class="text-nowrap me-1">
+                  <i class="bx bxs-star text-warning fs-sm"></i>
+                  <i class="bx bxs-star text-warning fs-sm"></i>
+                  <i class="bx bxs-star text-warning fs-sm"></i>
+                  <i class="bx bxs-star text-warning fs-sm"></i>
+                  <i class="bx bxs-star text-warning fs-sm"></i>
+                </div>
+                <span class="fs-xs text-muted">(19 reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="container pb-5 mb-1 mb-md-4 mb-lg-5">
+      <div class="row pb-xl-3">
+        <div class="col-md-6 pb-2 pb-md-0 mb-4 mb-md-0">
+          <div class="gallery rounded-3 shadow-sm">
+            <!-- <iframe class="rounded-3"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d510620.5738146372!2d36.00063734868889!3d-0.9895935401752124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18292a8eed202393%3A0x810fb586d857d42a!2sAIC%20Kijabe%20Hospital!5e0!3m2!1sen!2ske!4v1690229680354!5m2!1sen!2ske"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+            <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.799587444909!2d36.7898682!3d-1.2947933999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10969d1409f1%3A0x9cb370689cc9135e!2sCMS-Africa!5e0!3m2!1sen!2ske!4v1691855928760!5m2!1sen!2ske"
+              data-iframe="true" class="gallery-item rounded-3" data-sub-html='<h6 class="fs-sm text-light">CMS Africa, Chania Avenue, Nairobi, KENYA</h6>'>
+              <i class="bx bxs-map text-primary display-5 position-absolute top-50 start-50 translate-middle mb-0"></i>
+              <img src="assets/img/landing/medical/map.png" alt="Map cover" />
+              <div class="gallery-item-caption fs-sm fw-medium">
+                Expand the map
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-5 col-md-6 offset-xl-1">
+          <h2 class="h1 pb-4 mb-1 mb-lg-3 text-color-blue-light">
+            Want To Connect With Us
+          </h2>
+          <ul class="list-unstyled pb-3 mb-0 mb-lg-3">
+            <li class="d-flex mb-3">
+              <i class="bx bx-map text-muted fs-xl mt-1 me-2"></i>
+              Nairobi, Kenya
+            </li>
+            <li class="d-flex mb-3">
+              <i class="bx bx-phone-call text-muted fs-xl mt-1 me-2"></i>
+              <a href="tel:+254746717192">(254) 746 717 192</a>
+            </li>
+            <!-- <li class="d-flex mb-3">
+                <i class="bx bx-time text-muted fs-xl mt-1 me-2"></i>
+                <div>
+                  <div>
+                    <span class="text-dark fw-semibold me-1">Mon – Fri:</span
+                    >9:00 am – 22:00 pm
+                  </div>
+                  <div>
+                    <span class="text-dark fw-semibold me-1">Sat – Sun:</span
+                    >9:00 am – 20:00 pm
+                  </div>
+                </div>
+              </li> -->
+            <li class="d-flex mb-3">
+              <i class="bx bx-envelope text-muted fs-xl mt-1 me-2"></i>
+              <a href="mailto:tibalink@qhala.com">tibalink@qhala.com</a>
+            </li>
+          </ul>
+          <a href="#section-cta" class="btn btn-hov btn-primary shadow-color btn-lg">Make an appointment</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form -->
+    <section class="position-relative py-5" id="section-cta">
+      <div class="container position-relative zindex-5 py-2 py-md-4 py-lg-5">
+        <div class="row justify-content-center text-center pt-xl-2 pb-4 mb-1 mb-lg-3">
+          <div class="col-xl-6 col-lg-7 col-md-8 col-sm-11">
+            <h2 class="mb-4 text-color-blue-light">
+              Let's Change the Game Together
+            </h2>
+            <p class="text-muted mb-0">
+              Like what you have seen? Let’s get started. Just fill in a few
+              details and we will get in touch as soon as possible.
+            </p>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-md-10">
+            <form class="row needs-validation validate" novalidate id="cta-form" method="POST"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSfGdYVVVLixzMlo_yMomrltypVOVttSj6woX-JtaK9ElF73MA/formResponse">
+              <div class="col-sm-6 mb-4">
+                <label for="fn" class="form-label">First name</label>
+                <input name="entry.1017165240" type="text" id="fn" class="form-control" placeholder=" " required />
+                <div class="invalid-feedback">
+                  Please, enter your first name!
+                </div>
+              </div>
+              <div class="col-sm-6 mb-4">
+                <label for="ln" class="form-label">Last name</label>
+                <input name="entry.1178204704" type="text" id="ln" class="form-control" placeholder=" " required />
+                <div class="invalid-feedback">
+                  Please, enter your last name!
+                </div>
+              </div>
+              <div class="col-sm-6 mb-4">
+                <label for="email" class="form-label">Email address</label>
+                <input name="entry.745015876" type="email" id="email" class="form-control" placeholder=" " required />
+                <div class="invalid-feedback">
+                  Please, provide a valid email address!
+                </div>
+              </div>
+              <div class="col-sm-6 mb-4">
+                <label for="phone" class="form-label">Phone</label>
+                <input name="entry.1644269153" type="text" id="phone" class="form-control" data-format='{"numericOnly": true, "delimiters": ["+254 ", " ", " "], "blocks": [0, 3, 3, 2]}'
+                  placeholder="+254 ___ ___ __" required />
+                <div class="invalid-feedback">
+                  Please, provide a phone number in the format +254723123456
+                </div>
+              </div>
+              <div class="col-sm-6 mb-4">
+                <label for="city" class="form-label">City</label>
+                <select name="entry.267880691" id="city" class="form-select" required>
+                  <option name="entry.267880691" value="" disabled selected>Choose city</option>
+                  <option name="entry.267880691" value="Nairobi">Nairobi</option>
+                  <option name="entry.267880691" value="Nakuru">Nakuru</option>
+                  <option name="entry.267880691" value="Mombasa">Mombasa</option>
+                  <option name="entry.267880691" value="Kisumu">Kisumu</option>
+                  <option name="entry.267880691" value="Eldoret">Eldoret</option>
+                  <option name="entry.267880691" value="Konza">Konza</option>
+                </select>
+                <div class="invalid-feedback">Please, choose your city!</div>
+              </div>
+              <div class="col-sm-6 mb-4">
+                <label for="company" class="form-label">Hospital</label>
+                <input name="entry.1982234182" type="text" id="company" class="form-control" placeholder=" " required />
+              </div>
+              <div class="col-sm-6 mb-4">
+                <label for="position" class="form-label">Your position</label>
+                <select name="entry.1468371218" id="position" class="form-select" required>
+                  <option name="entry.1468371218" value="Owner">Owner</option>
+                  <option name="entry.1468371218" value="CEO">CEO</option>
+                  <option name="entry.1468371218" value="Manager">Manager</option>
+                  <option name="entry.1468371218" value="Accountant">Accountant</option>
+                </select>
+              </div>
+              <div class="col-sm-6 mb-4">
+                <label for="people" class="form-label">People in company</label>
+                <select name="entry.1059951353" id="people" class="form-select" required>
+                  <option name="entry.1059951353" value="0-10">0-10</option>
+                  <option name="entry.1059951353" value="10-25">10-25</option>
+                  <option name="entry.1059951353" value="25-50">25-50</option>
+                  <option name="entry.1059951353" value="50-100">50-100</option>
+                </select>
+              </div>
+              <div class="col-12 text-center pt-2 pt-md-3 pt-lg-4">
+                <button type="submit" class="btn btn-hov btn-primary shadow-color btn-lg">
+                  Send a request
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- BG shape -->
+      <div class="position-absolute end-0 bottom-0 text-primary">
+        <svg width="469" height="343" viewBox="0 0 469 343" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path opacity="0.08" fill-rule="evenodd" clip-rule="evenodd"
+            d="M273.631 680.872C442.436 768.853 639.315 708.216 717.593 558.212C795.871 408.208 732.941 212.157 564.137 124.176C395.333 36.195 198.453 96.8326 120.175 246.836C41.8972 396.84 104.827 592.891 273.631 680.872ZM236.335 752.344C440.804 858.914 688.289 788.686 789.109 595.486C889.928 402.286 805.903 159.274 601.433 52.7043C396.964 -53.8654 149.479 16.3623 48.6595 209.562C-52.1598 402.762 31.8652 645.774 236.335 752.344Z"
+            fill="currentColor" />
+          <path opacity="0.08" fill-rule="evenodd" clip-rule="evenodd"
+            d="M298.401 633.404C434.98 704.59 598.31 656.971 664.332 530.451C730.355 403.932 675.946 242.827 539.367 171.642C402.787 100.457 239.458 148.076 173.435 274.595C107.413 401.114 161.822 562.219 298.401 633.404ZM288.455 652.464C434.545 728.606 611.369 678.429 683.403 540.391C755.437 402.353 695.402 228.725 549.312 152.583C403.222 76.4404 226.398 126.617 154.365 264.655C82.331 402.693 142.365 576.321 288.455 652.464Z"
+            fill="currentColor" />
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer bg-secondary pt-5 pb-4 pb-lg-5" style="color: rgb(243,246,255);">
+    <div class="container pt-lg-4" >
+      <div class="row pb-5">
+        <div class="col-lg-4 col-md-6">
+          <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+            <img src="assets/img/logo.svg" alt="Silicon" />
+          </div>
+          <p class="fs-sm pb-lg-3 mb-4">
+            TibaLink is an initiative for doctors, by doctors, aimed at
+            improving the speed and efficiency of communication in healthcare.
+          </p>
+          <form class="subscription-form needs-validation validate" action="https://tibalink.us13.list-manage.com/subscribe/post?u=4484f072bf6c3c4fcc5bd0807&amp;id=b165551d9d&amp;f_id=009537e2f0"
+            method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate style="max-width: 420px;">
+            <label for="subscr-email" class="form-label">Subscribe to our newsletter</label>
+            <div class="input-group">
+              <input type="email" id="subscr-email" class="form-control rounded-start ps-5" name="EMAIL" placeholder="Your email" required>
+              <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
+              <div class="invalid-tooltip position-absolute top-100 start-0">
+                Please provide a valid email address.
+              </div>
+              <button type="submit" class="btn btn-hov btn-primary" name="subscribe">Subscribe*</button>
+            </div>
+            <div class="form-text pt-1 mt-4">*Subscribe to our newsletter to receive updates and new product info.</div>
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+              <input class="subscription-form-antispam" type="text" name="b_4484f072bf6c3c4fcc5bd0807_b165551d9d" tabindex="-1">
+            </div>
+            <div class="subscription-status"></div>
+          </form>
+        </div>
+        <div class="col-xl-6 col-lg-7 col-md-5 offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+          <div id="footer-links" class="row">
+            <div class="col-lg-4">
+              <h6 class="mb-2">
+                <a href="#useful-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Useful Links</a>
+              </h6>
+              <div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                  <li class="nav-item">
+                    <a href="/" class="nav-link d-inline-block px-0 pt-1 pb-2">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#about" class="nav-link d-inline-block px-0 pt-1 pb-2">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#features" class="nav-link d-inline-block px-0 pt-1 pb-2">Features</a>
+                  </li>
+                </ul>
+                <ul class="nav flex-column mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="privacy.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-3">
+              <h6 class="mb-2">
+                <a href="#social-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Socials</a>
+              </h6>
+              <div id="social-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                <ul class="nav flex-column mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a href="https://www.facebook.com/profile.php?id=100093048056096" class="nav-link d-inline-block px-0 pt-1 pb-2">Facebook</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://www.linkedin.com/company/tibalink/" class="nav-link d-inline-block px-0 pt-1 pb-2">LinkedIn</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://twitter.com/Tibalink_" class="nav-link d-inline-block px-0 pt-1 pb-2">Twitter</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://www.instagram.com/tibalink_/" class="nav-link d-inline-block px-0 pt-1 pb-2">Instagram</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
+              <h6 class="mb-2">Contact Us</h6>
+              <a href="mailto:tibalink@qhala.com" class="fw-medium">tibalink@qhala.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+        Made in Africa with ❤️ by Qhala.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <a href="#top" class="btn-scroll-top" data-scroll>
+    <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+    <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+  </a>
+
+  <!-- Vendor Scripts -->
+  <!-- Vendor Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+    crossorigin="anonymous"></script>
+  <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  <script src="assets/vendor/rellax/rellax.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+  <script src="assets/vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js"></script>
+  <script src="assets/vendor/lightgallery/plugins/zoom/lg-zoom.min.js"></script>
+  <script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+
+  <!-- Main Theme Script -->
+  <script src="assets/js/theme.min.js"></script>
+</body>
+
+</html>
